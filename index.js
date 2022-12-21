@@ -1,5 +1,6 @@
 const prompt = require('prompt-sync')();
-
+for (var i=1; i <=5; i++) {
+  console.log("Pessoa", i);
 var nome = prompt("Digite seu nome:");
 var salario_bruto = parseFloat(prompt(" Digite seu salário bruto:"));
 var dependentes = parseInt(prompt("Digite o número de dependentes:"));
@@ -20,3 +21,4 @@ if (renda_percapta >= 500) {
 }
 var salario_liquido = salario_bruto - ir;
 console.log("Salário líquido: R$", salario_liquido);
+}
