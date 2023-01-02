@@ -1,4 +1,10 @@
 const prompt = require('prompt-sync')();
+
+var salarios = [];
+var soma = 0;
+var media;
+var qtn_menores = 0;
+
 for (var i = 1; i <= 5; i++) {
   console.log("Pessoa", i);
   var nome = prompt("Digite seu nome:");
@@ -6,7 +12,7 @@ for (var i = 1; i <= 5; i++) {
   var dependentes = parseInt(prompt("Digite o número de dependentes:"));
   var renda_percapta = salario_bruto / (dependentes + 1);
 
-  (var j = 1; j <= dependentes; j++) {
+  for (var j = 1; j <= dependentes; j++) {
     var ganho = parseFloat(prompt(" Digite seu ganho mensal:"));
     salario_bruto = salario_bruto + ganho;
   }
@@ -29,4 +35,17 @@ for (var i = 1; i <= 5; i++) {
   }
   var salario_liquido = salario_bruto - ir;
   console.log("Salário líquido: R$", salario_liquido);
+  salarios.push(salario_liquido);
+  soma = soma + salario_liquido;
+
 }
+media = soma / 5
+
+for (var i = 0; i <= 4; i++) {
+  if (salarios[i]) {
+    qtd_menores = qtd_menores + 1
+  }
+}
+
+console.log("A média dos salários líquidos é:", media);
+console.log("A quantidade de pessoas com salários menores que a média é:", qtd_menores);
